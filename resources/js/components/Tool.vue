@@ -1,15 +1,17 @@
 <template>
     <div>
         <heading class="mb-6">App Preview</heading>
-        <div class="flex justify-between" style="">
+        <!--
+        <div class="flex justify-between" >
             <div class="relative h-9 mb-6">
-                <span class="ml-auto mb-6"><a class="btn btn-default btn-primary" dusk="create-button" href="/apk/app.apk" target="_blank">Download App</a></span>
+              <span class="ml-auto mb-6"><a class="btn btn-default btn-primary" dusk="create-button" href="/apk/app.apk" target="_blank">Download App</a></span>
             </div>
         </div>
+        -->
         <card class="bg-90 flex flex-col items-center justify-center py-8" >
-            <div class="phone-frame-wrap">
-                <div class="statusbar"></div>
-                <iframe src="/app/"></iframe>
+            <div class="phone-frame-wrap" v-if="config">
+                <div class="statusbar" v-bind:style="{ backgroundColor: config.color}"></div>
+                <iframe :src="config.appUrl"></iframe>
             </div>
         </card>
     </div>
@@ -17,8 +19,13 @@
 
 <script>
 export default {
-    mounted() {
-        //
+    data: function() {
+        return {
+            config: {}
+        };
+    },
+    async mounted() {
+        this.config = (await Nova.request().get("/nova-vendor/nova-app-preview/")).data;
     }
 };
 </script>

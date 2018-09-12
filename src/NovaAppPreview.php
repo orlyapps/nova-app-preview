@@ -14,8 +14,8 @@ class NovaAppPreview extends Tool
      */
     public function boot()
     {
-        Nova::script('nova-app-preview', __DIR__.'/../dist/js/tool.js');
-        Nova::style('nova-app-preview', __DIR__.'/../dist/css/tool.css');
+        Nova::script('nova-app-preview', __DIR__ . '/../dist/js/tool.js');
+        Nova::style('nova-app-preview', __DIR__ . '/../dist/css/tool.css');
     }
 
     /**
