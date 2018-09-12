@@ -700,7 +700,7 @@ var staticRenderFns = [
               staticClass: "btn btn-default btn-primary",
               attrs: {
                 dusk: "create-button",
-                href: "/apk/scanner.apk",
+                href: "/apk/app.apk",
                 target: "_blank"
               }
             },
